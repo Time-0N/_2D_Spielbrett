@@ -7,14 +7,51 @@ public class _2D_PlayerBoardTest {
     @Test
     void _2D_PlayerBoard_whenW_thenMoveUp() {
         //GIVEN
-        char W = 'W';
-        int[][] board = new int[4] [4];
-
+        int pos1 = 2;
+        int minus = 0;
         //WHEN
-         actual = _2D_PlayerBoard.moveUp(W);
+        int actual = _2D_PlayerBoard.moveUpDown(pos1, minus);
 
         //THEN
-        assertEquals('W', actual);
+        assertEquals(3, actual);
 
+    }
+
+    @Test
+    void _2D_PlayerBoard_whenS_thenMoveDown() {
+        //GIVEN
+        int pos1 = 2;
+        int minus = 1;
+        //WHEN
+        int actual = _2D_PlayerBoard.moveUpDown(pos1, minus);
+
+        //THEN
+        assertEquals(1, actual);
+    }
+
+    @Test
+    void _2D_PlayerBoard_whenA_thenMoveLeft() {
+        //GIVEN
+        int pos2 = 2;
+        int minus = 1;
+
+        //WHEN
+        int actual = _2D_PlayerBoard.moveLeftRight(pos2, minus);
+
+        //THEN
+        assertEquals(1, actual);
+    }
+
+    @Test
+    void _2D_PlayerBoard_whenA_thenMoveRight() {
+        //GIVEN
+        int pos2 = 2;
+        int minus = 0;
+
+        //WHEN
+        int actual = _2D_PlayerBoard.moveLeftRight(pos2, minus);
+
+        //THEN
+        assertEquals(3, actual);
     }
 }
