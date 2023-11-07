@@ -24,18 +24,18 @@ public class _2D_PlayerBoard {
         if (minus == 0 && pos2 != 4) {
             pos2++;
             return pos2;
-        } else if (pos2 != 0) {
+        } else if (pos2 != 0 && minus == 1) {
             pos2--;
             return pos2;
         } else
-        return pos2;
-        }
+            return pos2;
+    }
 
     public static int moveUpDown(int pos1, int minus) {
         if (minus == 0 && pos1 != 4) {
             pos1++;
             return pos1;
-        } else if (pos1 != 0) {
+        } else if (pos1 != 0 && minus == 1) {
             pos1--;
             return pos1;
         } else
