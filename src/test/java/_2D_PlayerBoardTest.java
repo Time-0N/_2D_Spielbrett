@@ -8,9 +8,9 @@ public class _2D_PlayerBoardTest {
     void _2D_PlayerBoard_whenW_thenMoveUp() {
         //GIVEN
         int pos1 = 2;
-        int minus = 0;
+        boolean isMinus = false;
         //WHEN
-        int actual = _2D_PlayerBoard.moveUpDown(pos1, minus);
+        int actual = _2D_PlayerBoard.moveUpDown(pos1, isMinus);
 
         //THEN
         assertEquals(3, actual);
@@ -21,9 +21,9 @@ public class _2D_PlayerBoardTest {
     void _2D_PlayerBoard_whenS_thenMoveDown() {
         //GIVEN
         int pos1 = 2;
-        int minus = 1;
+        boolean isMinus = true;
         //WHEN
-        int actual = _2D_PlayerBoard.moveUpDown(pos1, minus);
+        int actual = _2D_PlayerBoard.moveUpDown(pos1, isMinus);
 
         //THEN
         assertEquals(1, actual);
@@ -33,10 +33,10 @@ public class _2D_PlayerBoardTest {
     void _2D_PlayerBoard_whenA_thenMoveLeft() {
         //GIVEN
         int pos2 = 2;
-        int minus = 1;
+        boolean isMinus = false;
 
         //WHEN
-        int actual = _2D_PlayerBoard.moveLeftRight(pos2, minus);
+        int actual = _2D_PlayerBoard.moveLeftRight(pos2, isMinus);
 
         //THEN
         assertEquals(1, actual);
@@ -46,10 +46,10 @@ public class _2D_PlayerBoardTest {
     void _2D_PlayerBoard_whenA_thenMoveRight() {
         //GIVEN
         int pos2 = 2;
-        int minus = 0;
+        boolean isMinus = true;
 
         //WHEN
-        int actual = _2D_PlayerBoard.moveLeftRight(pos2, minus);
+        int actual = _2D_PlayerBoard.moveLeftRight(pos2, isMinus);
 
         //THEN
         assertEquals(3, actual);
