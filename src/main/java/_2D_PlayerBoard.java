@@ -20,22 +20,22 @@ public class _2D_PlayerBoard {
     }
 
 
-    public static int moveLeftRight(int pos2, int minus) {
-        if (minus == 0 && pos2 != 4) {
+    public static int moveLeftRight(int pos2, boolean isMinus) {
+        if (isMinus && pos2 != 4) {
             pos2++;
             return pos2;
-        } else if (pos2 != 0 && minus == 1) {
+        } else if (pos2 != 0 && !isMinus) {
             pos2--;
             return pos2;
         } else
             return pos2;
     }
 
-    public static int moveUpDown(int pos1, int minus) {
-        if (minus == 0 && pos1 != 4) {
+    public static int moveUpDown(int pos1, boolean isMinus) {
+        if (isMinus && pos1 != 4) {
             pos1++;
             return pos1;
-        } else if (pos1 != 0 && minus == 1) {
+        } else if (pos1 != 0 && !isMinus) {
             pos1--;
             return pos1;
         } else
@@ -46,8 +46,8 @@ public class _2D_PlayerBoard {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[][] board = new int[5][5];
-        int pos1 = 0;
-        int pos2 = 0;
+        int pos1 = 2;
+        int pos2 = 2;
 
         System.out.println("Press 1 to start");
         int start = sc.nextInt();
@@ -55,28 +55,30 @@ public class _2D_PlayerBoard {
         if (start == 1) {
             while (true) {
                 printBoard(board,pos1,pos2);
-                int minus = 0;
+                boolean isMinus = true;
                 System.out.println("Press W to move up, Press S to move down, Press D to move right, Press A to move left");
                 char input = sc.next().charAt(0);
                 input = Character.toUpperCase(input);
                 switch (input) {
                     case 'S':
-                        pos1 = moveUpDown(pos1, minus);
+                        pos1 = moveUpDown(pos1, isMinus);
                         break;
                     case 'W':
-                        minus++;
-                        pos1 = moveUpDown(pos1, minus);
+                        isMinus = false;
+                        pos1 = moveUpDown(pos1, isMinus);
                         break;
                     case 'A':
-                        minus++;
-                        pos2 = moveLeftRight(pos2, minus);
+                        isMinus = false;
+                        pos2 = moveLeftRight(pos2, isMinus);
                         break;
                     case 'D':
-                        pos2 = moveLeftRight(pos2, minus);
+                        pos2 = moveLeftRight(pos2, isMinus);
                         break;
                     default:
                         System.out.println("invalid input");
                 }
+
+
             }
         } else {
             System.out.println("Invalid input");
